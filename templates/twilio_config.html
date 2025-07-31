@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Twilio Configuration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%); min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+        .form-container { background: #fff; padding: 2.5rem 2rem; border-radius: 1.25rem; box-shadow: 0 4px 32px rgba(0,0,0,0.08); min-width: 340px; max-width: 400px; width: 100%; }
+        h2 { text-align: center; margin-bottom: 0.5rem; color: #3730a3; }
+        label { display: block; margin-bottom: 1rem; }
+        input { width: 100%; padding: 0.6rem; margin-top: 0.2rem; border-radius: 0.5rem; border: 1px solid #c7d2fe; font-size: 1rem; outline: none; margin-bottom: 0.2rem; }
+        button { background: linear-gradient(90deg, #6366f1 0%, #818cf8 100%); color: #fff; padding: 0.8rem; border: none; border-radius: 0.7rem; font-weight: 600; font-size: 1.1rem; cursor: pointer; margin-top: 0.5rem; width: 100%; }
+        .message { color: #16a34a; text-align: center; font-weight: 500; margin-top: 1rem; }
+        .error { color: #dc2626; text-align: center; font-weight: 500; margin-top: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Twilio Configuration</h2>
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+        {% if error %}
+            <div class="error">{{ error }}</div>
+        {% endif %}
+        <form method="post" action="/config/twilio-config-form">
+            <label>
+                Account SID
+                <input name="TWILIO_ACCOUNT_SID" value="{{ config.get('TWILIO_ACCOUNT_SID', '') }}" required placeholder="ACxxxxxxxxxxxxxxxxxxxx">
+            </label>
+            <label>
+                Auth Token
+                <input name="TWILIO_AUTH_TOKEN" value="{{ config.get('TWILIO_AUTH_TOKEN', '') }}" required type="password" placeholder="Your Auth Token">
+            </label>
+            <label>
+                Phone Number
+                <input name="TWILIO_PHONE_NUMBER" value="{{ config.get('TWILIO_PHONE_NUMBER', '') }}" required placeholder="+1234567890">
+            </label>
+            <label>
+                Webhook URL
+                <input name="webhook_url" value="{{ config.get('webhook_url', '') }}" required placeholder="https://yourdomain.com/webhook">
+            </label>
+            <button type="submit">Save Configuration</button>
+        </form>
+    </div>
+</body>
+</html>

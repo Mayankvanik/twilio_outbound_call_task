@@ -1,0 +1,6 @@
+{
+    "TWILIO_ACCOUNT_SID": "None",
+    "TWILIO_AUTH_TOKEN": "None",
+    "TWILIO_PHONE_NUMBER": "+None",
+    "webhook_url": "None"
+}

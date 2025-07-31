@@ -1,0 +1,19 @@
+[project]
+name = "twillo"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.116.1",
+    "jinja2>=3.1.6",
+    "langchain-openai>=0.3.28",
+    "pypdf2>=3.0.1",
+    "python-dotenv>=1.1.1",
+    "python-multipart>=0.0.20",
+    "python-telegram-bot[fastapi]>=22.3",
+    "qdrant-client>=1.15.0",
+    "requests>=2.32.4",
+    "twilio>=9.7.0",
+    "uvicorn>=0.35.0",
+]
